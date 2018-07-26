@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Edit Profile</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+
+	
+	
+  <form class="list-form" [formGroup]="editForm" (ngSubmit)="editProfile(editForm.value)">
+  <ion-card no-margin margin-bottom class="full-width">
+  
+		<ion-item class="border-bottom">
+			<ion-icon name="person" color="primary" item-left></ion-icon>
+			<ion-input formControlName="id" type="text" hidden placeholder="ID" [(ngModel)]="myInfo.id"></ion-input>
+			<ion-input formControlName="first_name" type="text" placeholder="First Name" [(ngModel)]="myInfo.first_name"></ion-input>
+		</ion-item>
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="person" color="primary" item-left></ion-icon>
+			<ion-input formControlName="last_name" type="text" placeholder="Last Name" [(ngModel)]="myInfo.last_name"></ion-input>
+		</ion-item>
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="call" color="primary" item-left></ion-icon>
+			<ion-input formControlName="mobile_number" type="tel" placeholder="Phone Number" [(ngModel)]="myInfo.mobile_number"></ion-input>
+		</ion-item>
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="md-list-box" color="primary" item-left></ion-icon>
+			<ion-input formControlName="address" type="text" placeholder="Address"></ion-input>
+		</ion-item>
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="map" color="primary" item-left></ion-icon>
+			<ion-input formControlName="city" type="text" placeholder="City"></ion-input>
+		</ion-item>
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="map" color="primary" item-left></ion-icon>
+			<ion-select formControlName="state" [(ngModel)]="myInfo.state" placeholder="State">
+			  	<ion-option value="Alabama">Alabama</ion-option>
+				<ion-option value="Alaska">Alaska</ion-option>
+				<ion-option value="Arizona">Arizona</ion-option>
+				<ion-option value="Arkansas">Arkansas</ion-option>
+				<ion-option value="California">California</ion-option>
+				<ion-option value="Colorado">Colorado</ion-option>
+				<ion-option value="Connecticut">Connecticut</ion-option>
+				<ion-option value="Delaware">Delaware</ion-option>
+				<ion-option value="District Of Columbia">District Of Columbia</ion-option>
+				<ion-option value="Florida">Florida</ion-option>
+				<ion-option value="Georgia">Georgia</ion-option>
+				<ion-option value="Hawaii">Hawaii</ion-option>
+				<ion-option value="Idaho">Idaho</ion-option>
+				<ion-option value="Illinois">Illinois</ion-option>
+				<ion-option value="Indiana">Indiana</ion-option>
+				<ion-option value="Iowa">Iowa</ion-option>
+				<ion-option value="Kansas">Kansas</ion-option>
+				<ion-option value="Kentucky">Kentucky</ion-option>
+				<ion-option value="Louisiana">Louisiana</ion-option>
+				<ion-option value="Maine">Maine</ion-option>
+				<ion-option value="Maryland">Maryland</ion-option>
+				<ion-option value="Massachusetts">Massachusetts</ion-option>
+				<ion-option value="Michigan">Michigan</ion-option>
+				<ion-option value="Minnesota">Minnesota</ion-option>
+				<ion-option value="Mississippi">Mississippi</ion-option>
+				<ion-option value="Missouri">Missouri</ion-option>
+				<ion-option value="Montana">Montana</ion-option>
+				<ion-option value="Nebraska">Nebraska</ion-option>
+				<ion-option value="Nevada">Nevada</ion-option>
+				<ion-option value="New Hampshire">New Hampshire</ion-option>
+				<ion-option value="New Jersey">New Jersey</ion-option>
+				<ion-option value="New Mexico">New Mexico</ion-option>
+				<ion-option value="New York">New York</ion-option>
+				<ion-option value="North Carolina">North Carolina</ion-option>
+				<ion-option value="North Dakota">North Dakota</ion-option>
+				<ion-option value="Ohio">Ohio</ion-option>
+				<ion-option value="Oklahoma">Oklahoma</ion-option>
+				<ion-option value="Oregon">Oregon</ion-option>
+				<ion-option value="Pennsylvania">Pennsylvania</ion-option>
+				<ion-option value="Rhode Island">Rhode Island</ion-option>
+				<ion-option value="South Carolina">South Carolina</ion-option>
+				<ion-option value="South Dakota">South Dakota</ion-option>
+				<ion-option value="Tennessee">Tennessee</ion-option>
+				<ion-option value="Texas">Texas</ion-option>
+				<ion-option value="Utah">Utah</ion-option>
+				<ion-option value="Vermont">Vermont</ion-option>
+				<ion-option value="Virginia">Virginia</ion-option>
+				<ion-option value="Washington">Washington</ion-option>
+				<ion-option value="West Virginia">West Virginia</ion-option>
+				<ion-option value="Wisconsin">Wisconsin</ion-option>
+				<ion-option value="Wyoming">Wyoming</ion-option>
+			</ion-select>
+		</ion-item>
+		
+		
+		<ion-item class="border-bottom">
+			<ion-icon name="mail" color="primary" item-left></ion-icon>
+			<ion-input formControlName="zip" type="text" placeholder="Zip Code"></ion-input>
+		</ion-item>
+	
+  </ion-card>
+  
+	<div text-center *ngIf="loadingIcon">
+		<ion-spinner name="dots"></ion-spinner>
+	</div>
+	
+	<div text-center *ngIf="error_message">
+		<p>{{error_message}}</p>
+	</div>
+	
+  <button ion-button icon-start block no-margin color="primary" class="round" tappable type="submit">Update</button>
+  </form>
+  
+</ion-content>
